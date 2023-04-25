@@ -1,9 +1,9 @@
 import torch
 from onnxexport.model_onnx import SynthesizerTrn
 import utils
+import sys
 
-def main(NetExport):
-    path = "SoVits4.0"
+def main(NetExport, path):
     if NetExport:
         device = torch.device("cpu")
         hps = utils.get_hparams_from_file(f"checkpoints/{path}/config.json")
@@ -51,4 +51,4 @@ def main(NetExport):
 
 
 if __name__ == '__main__':
-    main(True)
+    main(True, sys.argv[1])
